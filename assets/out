@@ -22,6 +22,8 @@ configuration=$(jq -r '.params.configuration // ""' < $payload)
 delete=$(jq -r '.params.delete // "false"' < $payload)
 
 kubectl_apply() {
+  echo $PWD
+  echo $(ls)
   apply_args=("apply" "-f" "$configuration")
   logfile="/tmp/log"
   mkdir -p /tmp
