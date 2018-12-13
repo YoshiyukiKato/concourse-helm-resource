@@ -1,5 +1,4 @@
-FROM linkyard/docker-helm:2.11.0
-LABEL maintainer "mario.siegenthaler@linkyard.ch"
+FROM alpine:3.7
 
 RUN apk add --update --upgrade --no-cache jq bash curl
 
@@ -9,8 +8,5 @@ RUN curl -L -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-
 
 ADD assets /opt/resource
 RUN chmod +x /opt/resource/*
-
-RUN mkdir -p "$(helm home)/plugins"
-RUN helm plugin install https://github.com/databus23/helm-diff
 
 ENTRYPOINT [ "/bin/bash" ]
