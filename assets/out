@@ -18,7 +18,7 @@ setup_resource $payload $source
 echo "Resource setup successful."
 
 # Parse parameters
-configuration_file=$(jq -r '.params.configuration // ""' < $payload)
+configuration=$(jq -r '.params.configuration // ""' < $payload)
 delete=$(jq -r '.params.delete // "false"' < $payload)
 
 kubectl_apply() {
