@@ -9,4 +9,6 @@ RUN curl -L -o /usr/local/bin/kubectl https://storage.googleapis.com/kubernetes-
 ADD assets /opt/resource
 RUN chmod +x /opt/resource/*
 
+WORKDIR /
+
 ENTRYPOINT [ "/bin/bash" ]
