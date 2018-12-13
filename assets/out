@@ -52,7 +52,6 @@ else
   echo "Applying $configuration"
   kubectl_apply
 
-  chart=$(echo $deployed | awk '{ print $8 }')
   echo "Deployed $configuration"
   result="$(jq -n "{version:{configuration:\"$configuration\"}, metadata: [{name: \"configuration\", value: \"$configuration\"}]}")"
   echo "$result" | jq -s add  >&3
