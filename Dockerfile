@@ -1,4 +1,4 @@
-FROM alpine:3.7
+FROM linkyard/docker-helm
 
 RUN apk add --update --upgrade --no-cache jq bash curl
 
